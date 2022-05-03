@@ -31,15 +31,14 @@ def draw_bbox(image: np.ndarray,
 
     # add title
     if title:
-        #scale = min(image.shape[0], image.shape[1]) / (720 / 0.9)
-        scale = min(image.shape[0], image.shape[1]) / (720 / 0.5)
+        scale = min(image.shape[0], image.shape[1]) / (720 / 0.3)
         text_size = cv2.getTextSize(title, 0, fontScale=scale, thickness=1)[0]
-        top_left = (x1 - thickness + 1, y1 - text_size[1] - 20)
+        top_left = (x1 - thickness + 1, y1 - text_size[1] - 10)
         bottom_right = (x1 + text_size[0] + 5, y1)
 
         cv2.rectangle(image, top_left, bottom_right, color=color, thickness=-1)
-        cv2.putText(image, title, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX,
-                    scale, (255, 255, 255), 2)
+        cv2.putText(image, title, (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX,
+                    scale, (255, 255, 255), 1)
 
     # add box
-    cv2.rectangle(image, (x1, y1), (x2, y2), color=color, thickness=thickness)
+    cv2.rectangle(image, (x1, y1), (x2, y2), color=color, thickness=1)
