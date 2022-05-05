@@ -130,6 +130,4 @@ class Yolov5(IModel):
         """
         # apply nms
         outputs = non_max_suppression_np(outputs[0])
-        print(type(outputs))
-        print(outputs)
         return outputs
